@@ -1,3 +1,9 @@
 name: Janken Rock Paper Scissors
 main: NomarTheHero.RPS
 version: 1.0
+commands:
+  rps:
+    description: /rps help
+    usage: /rps
+    permission: rps.command
+    permission-message: You don't have permission!

@@ -31,6 +31,12 @@ public class CommandHandler implements CommandExecutor {
 			
 			else if (arg1.equalsIgnoreCase("help")) {
 				
+				sendHelpMsg(player);
+				
+			}
+			
+			else if (arg1.equalsIgnoreCase("computer")) {
+				
 				
 				
 			}
@@ -47,11 +53,32 @@ public class CommandHandler implements CommandExecutor {
 				
 			}
 					
-		}	
+		}
 		
-		return false;
+		else if (args.length == 0) {
+			
+			player.sendMessage(prefix + "Type /rps help for more info");
+			
+		}
+		
+		return true;
 	}
 	
+	
+	private void sendHelpMsg(Player player) {
+		
+		player.sendMessage(genHelpMsg("help", "View all commands"));
+		player.sendMessage(genHelpMsg("<player>", "Invite another player for a game"));
+		player.sendMessage(genHelpMsg("rock/paper/scissor", "Make a choice"));
+		player.sendMessage(genHelpMsg("quit", "Quit the game"));
+		player.sendMessage(genHelpMsg("computer", "Have a match against the computer"));
+		
+	}
+	
+	
+	private String genHelpMsg(String cmd, String explanation) {	
+		return ChatColor.BLUE + "/" + ChatColor.DARK_GREEN + "rps " + ChatColor.GREEN + cmd + ChatColor.BLUE + " - " + explanation;	
+	}
 	
 	private boolean checks(Player player, String p1, String p2) {
 		
@@ -69,8 +96,6 @@ public class CommandHandler implements CommandExecutor {
 			player.sendMessage(prefix + "That person is already in a game!");
 			return false;
 		}
-
-		
 		
 		return true;
 	}

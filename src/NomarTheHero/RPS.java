@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class RPS extends JavaPlugin {
 	
-	private static RPS plugin = new RPS();
+	private static RPS plugin;
 	
 	private String prefix = ChatColor.BLUE + "[" + ChatColor.GREEN + "RPS" + ChatColor.BLUE + "]" + ChatColor.DARK_AQUA + " - " + ChatColor.GREEN;
 	
@@ -22,7 +22,6 @@ public class RPS extends JavaPlugin {
 	 *GameManager class
 	 *
 	 * "/rps duel <player>"
-	 * "/rps accept <player>"
 	 * "/rps quit"
 	 * 
 	 * "/rps rock / paper / scissor"
@@ -31,13 +30,16 @@ public class RPS extends JavaPlugin {
 	 * 
 	 * Best out of 3 wins!
 	 * 
+	 * Later: Player vs Computer mode
+	 * 
 	 */
         
     
-	
-    
    public void onEnable(){
-	   this.getCommand("rps").setExecutor(new CommandHandler());
+	   plugin = this;
+	   
+	   plugin.getCommand("rps").setExecutor(new CommandHandler());
+	   
    }
     
 

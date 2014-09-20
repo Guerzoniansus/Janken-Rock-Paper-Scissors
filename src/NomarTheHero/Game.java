@@ -15,9 +15,13 @@ public class Game {
 	private String winner;
 	private String loser;
 	
+	int turn;
+	
 	public Game(String player1, String player2) {
 		this.player1 = player1;
 		this.player2 = player2;
+		
+		this.turn = 1;
 	}
 	
 	
@@ -37,7 +41,13 @@ public class Game {
 		return playerChoice.get(playerName);
 	}
 	
+	public void addTurn() {
+		turn = turn + 1;
+	}
 	
+	public int getTurn() {
+		return turn;
+	}
 	
 	
 
